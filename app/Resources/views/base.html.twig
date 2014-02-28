@@ -2,12 +2,26 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title %}TennisBook{% endblock %}</title>
+        {% block stylesheets %}
+            <link href="{{ asset('bundles/tennisbookaccueil/css/bootstrap.min.css') }}" type="text/css" rel="stylesheet" />
+            <link href="{{ asset('bundles/tennisbookaccueil/css/bootstrap-theme.min.css') }}" type="text/css" rel="stylesheet" />
+       {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
+    <div id="navbar">
+        {% block headBar %}{% endblock %}
+    </div>
+    <div id="content" class="container">
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+    </div>
+        {% block javascripts %}
+          <script src="{{ asset('bundles/tennisbookaccueil/js/bootstrap.min.js') }}" type="text/javascript"></script>
+          <script src="{{ asset('bundles/tennisbookaccueil/js/jquery-2.1.0.min.js') }}" type="text/javascript"></script>
+        {% endblock %}
     </body>
 </html>

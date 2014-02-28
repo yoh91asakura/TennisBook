@@ -1,5 +1,6 @@
-store_accueil:
-    resource: "@StoreAccueilBundle/Controller/"
-    type:     annotation
+tennis_book_accueil:
+    resource: "@TennisBookAccueilBundle/Resources/config/routing.yml"
     prefix:   /
+
+
 
