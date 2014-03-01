@@ -1,3 +1,7 @@
+tennis_book_user:
+    resource: "@TennisBookUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
 tennis_book_accueil:
     resource: "@TennisBookAccueilBundle/Resources/config/routing.yml"
     prefix:   /

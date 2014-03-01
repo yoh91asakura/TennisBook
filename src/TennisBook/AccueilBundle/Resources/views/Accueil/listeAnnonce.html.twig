@@ -1,0 +1,25 @@
+{% extends '::layout.html.twig' %}
+
+{% block body %}
+    <table class="table-responsive">
+        <thead>
+        <th>Id</th>
+        <th>Titre</th>
+        <th>Description</th>
+        <th>Lieux</th>
+        <th>Date</th>
+        </thead>
+
+        <tbody>
+        {% for annonce in annonces %}
+            <tr>
+                <td>{{ annonce.id }}</td>
+                <td>{{ annonce.titre }}</td>
+                <td>{{ annonce.description }}</td>
+                <td>{{ annonce.lieux }}</td>
+                <td>{{ annonce.date}} </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends '::layout.html.twig' %}
+
+
+
+{% block body %}
+    {{ parent() }}
+
+    <div class="modal fade" data-toggle="loginModal" id="loginModal" data-toggle="loginModal">
+        <div class="modal-dialog" role="dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">{% block title %}TennisBook Application{% endblock %}</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        {% for type, messages in app.session.flashbag.all() %}
+                        {% for key, message in messages %}
+                    <div class="flash-{{ type }}">
+                        {{ message|trans({}, 'FOSUserBundle') }}
+                    </div>
+                    {% endfor %}
+                    {% endfor %}
+                    {% block fos_user_content %}{% endblock %}</p>
+                </div>
+                <div class="modal-footer">
+                    <div>
+                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                        {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+                        <button type="button" class="btn btn-default" data-dismiss="modal"><a href="{{ path('fos_user_security_logout') }}">
+                                {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                            </a></button>
+                        {% else %}
+                        <button type="button" class="btn btn-primary">
+                            <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                            {% endif %}</button>
+                    </div>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    {% block javascripts %}
+        {{ parent() }}
+        <script type="text/javascript">
+            $(function() {
+                $('#loginModal').modal({show:true});
+            });
+        </script>
+    {% endblock %}
+{% endblock %}
