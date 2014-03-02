@@ -1,0 +1,41 @@
+{% extends '::layout.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-6">
+            <div class="jumbotron">
+                <h1>Espace Amateur</h1>
+                <p>Trouve un partenaire de jeu idéal !</p>
+                <p><a class="btn btn-primary btn-lg" role="button" href=" {{ path('tennis_book_accueilAmateur') }}">Accèder</a></p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="jumbotron">
+                <h1>Espace Pro</h1>
+                <p>Pour des rencontres d'exception</p>
+                <p><a class="btn btn-primary btn-lg" role="button" href=" {{ path('tennis_book_accueilPro') }}">Accèder</a></p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <table class="table-responsive">
+            <thead>
+            <th>id</th>
+            <th>nom</th>
+            <th>prenom</th>
+            </thead>
+
+            <tbody>
+            {% for i in (0..10) %}
+                <tr>
+                    <td>{{ i }}</td>
+                    <td>nom{{ i }}</td>
+                    <td>prenom{{ i }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+
+{% endblock %}

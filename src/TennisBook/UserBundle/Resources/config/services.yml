@@ -1,0 +1,7 @@
+parameters:
+#    tennis_book_user.example.class: TennisBook\UserBundle\Example
+
+services:
+#    tennis_book_user.example:
+#        class: %tennis_book_user.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

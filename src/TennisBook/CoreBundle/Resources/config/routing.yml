@@ -1,0 +1,3 @@
+tennis_book_core_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: TennisBookCoreBundle:Default:index }

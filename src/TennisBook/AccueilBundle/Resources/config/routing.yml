@@ -1,0 +1,11 @@
+tennis_book_accueil_homepage:
+    pattern:  /
+    defaults: { _controller: TennisBookAccueilBundle:Accueil:index }
+
+tennis_book_accueilPro:
+    pattern: /pro
+    defaults: { _controller: TennisBookAccueilBundle:Accueil:indexPro }
+
+tennis_book_accueilAmateur:
+    pattern: /amateur
+    defaults: { _controller: TennisBookAccueilBundle:Accueil:indexAmateur }

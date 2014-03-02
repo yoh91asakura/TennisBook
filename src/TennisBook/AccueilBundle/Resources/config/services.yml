@@ -1,0 +1,7 @@
+parameters:
+#    tennis_book_accueil.example.class: TennisBook\AccueilBundle\Example
+
+services:
+#    tennis_book_accueil.example:
+#        class: %tennis_book_accueil.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

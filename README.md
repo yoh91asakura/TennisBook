@@ -6,6 +6,10 @@ Dependencies:
     LessPhp ~master
     FSOUserBundle
 
+Bundles :
+utilisation du yml pour la configuration
+utilisation des annontations pour les entités doctrines
+
 Pour pouvoir utiliser le projet :
     -installer composer et faire tourner le composer.phar nouvellement crée
     -faire tourner la commande doctrine schema-update --force pour créer la base de donnée avec les fixtures

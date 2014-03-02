@@ -1,0 +1,7 @@
+parameters:
+#    tennis_book_core.example.class: TennisBook\CoreBundle\Example
+
+services:
+#    tennis_book_core.example:
+#        class: %tennis_book_core.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
