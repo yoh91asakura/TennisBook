@@ -29,6 +29,12 @@ twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
 
+services:
+    tennisbook.twig.extension.debug:
+            class:        Twig_Extension_Debug
+            tags:
+                 - { name: 'twig.extension' }
+
 # Assetic Configuration
 assetic:
     debug:          "%kernel.debug%"
@@ -75,3 +81,6 @@ fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
     user_class: TennisBook\UserBundle\Entity\User
+    registration:
+            form:
+                type: tennisbook_user_registration

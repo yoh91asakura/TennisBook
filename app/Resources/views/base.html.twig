@@ -13,16 +13,16 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
 </head>
 <body>
-<div id="navbar">
-    {% block headBar %}{% endblock %}
-</div>
 <div id="content" class="container">
+    <div id="navbar">
+        {% block headBar %}{% endblock %}
+    </div>
     {% block body %}
-        {% block javascripts %}
-            <script src="{{ asset('bundles/tennisbookaccueil/js/jquery-2.1.0.min.js') }}" type="text/javascript"></script>
-            <script src="{{ asset('bundles/tennisbookaccueil/js/bootstrap.min.js') }}" type="text/javascript"></script>
-        {% endblock %}
     {% endblock %}
 </div>
+{% block javascripts %}
+    <script src="{{ asset('bundles/tennisbookaccueil/js/jquery-2.1.0.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('bundles/tennisbookaccueil/js/bootstrap.min.js') }}" type="text/javascript"></script>
+{% endblock %}
 </body>
 </html>
