@@ -22,4 +22,15 @@ class AccueilController extends Controller
         }
         return $this->render('TennisBookAccueilBundle:Accueil:listeAnnonce.html.twig', array('annonces' => $annonces));
     }
+
+    public function indexAmateurAction()
+    {
+        $em = $this->container->get('doctrine.orm.entity_manager');
+        $annonces = $em->getRepository('TennisBookCoreBundle:Annonce')->getRecentAnnonces();
+
+        foreach($annonces as $annonce) {
+            $annonce->setDate($annonce->getDate()->format('Y/m/d'));
+        }
+        return $this->render('TennisBookAccueilBundle:Accueil:listeAnnonce.html.twig', array('annonces' => $annonces));
+    }
 }
