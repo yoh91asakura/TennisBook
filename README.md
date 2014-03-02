@@ -1,4 +1,4 @@
-The TennisBook,  le site aidant les rencontre encre tennismans
+The TennisBook,  le site aidant les rencontre entre tennismans
 
 Dependencies:
     jQuery 2.1.0 (passage à jQuery Mobile possible après étude de l'api)
