@@ -16,7 +16,11 @@ class AppKernel extends Kernel
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-            new Store\AccueilBundle\StoreAccueilBundle(),
+            new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
+            new TennisBook\AccueilBundle\TennisBookAccueilBundle(),
+            new TennisBook\CoreBundle\TennisBookCoreBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
+            new TennisBook\UserBundle\TennisBookUserBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
