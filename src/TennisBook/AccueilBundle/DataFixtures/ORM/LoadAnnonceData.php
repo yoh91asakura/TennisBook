@@ -5,7 +5,7 @@ namespace TennisBook\AccueilBundle\Datafixtures\ORM;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Validator\Constraints\DateTime;
-use TennisBook\Entity\Annonce;
+use TennisBook\CoreBundle\entity\Annonce;
 
 class LoadUserData implements FixtureInterface {
 
