@@ -1,26 +1,26 @@
 security:
-    encoders:
-        FOS\UserBundle\Model\UserInterface: sha512
+   encoders:
+            TennisBook\UserBundle\Entity\User: sha512
 
-    role_hierarchy:
+   role_hierarchy:
         ROLE_ADMIN:       ROLE_USER
         ROLE_SUPER_ADMIN: ROLE_ADMIN
 
-    providers:
-        fos_userbundle:
-            id: fos_user.user_provider.username
+   firewalls:
+      main:
+          pattern: ^/
+          logout:       true
+          anonymous:    true
+          form_login:
+              login_path:  /login
+              check_path:  /login_check
 
-    firewalls:
+   providers:
         main:
-            pattern: ^/
-            form_login:
-                provider: fos_userbundle
-                csrf_provider: form.csrf_provider
-            logout:       true
-            anonymous:    true
+            entity: { class: TennisBook\UserBundle\Entity\User, property: username }
 
-    access_control:
-        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/admin/, role: ROLE_ADMIN }
+   access_control:
+      - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+      - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
+      - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+      - { path: ^/admin/, role: ROLE_ADMIN }

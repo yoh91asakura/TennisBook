@@ -1,9 +1,3 @@
 parameters:
 #    tennis_book_user.example.class: TennisBook\UserBundle\Example
 
-services:
-    acme_user.registration.form.type:
-        class: TennisBook\UserBundle\Form\Type\TennisBookRegistrationFormType
-        arguments: [%fos_user.model.user.class%]
-        tags:
-            - { name: form.type, alias: tennisbook_user_registration }

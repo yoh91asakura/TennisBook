@@ -19,7 +19,6 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             new TennisBook\AccueilBundle\TennisBookAccueilBundle(),
             new TennisBook\CoreBundle\TennisBookCoreBundle(),
-            new FOS\UserBundle\FOSUserBundle(),
             new TennisBook\UserBundle\TennisBookUserBundle(),
         );
 
