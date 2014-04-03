@@ -13,7 +13,10 @@ use Doctrine\ORM\Mapping as ORM;
 class User implements UserInterface, \Serializable
 {
 
-
+    public function __construct()
+    {
+         $this->salt = md5(uniqid(null, true));
+    }
 
     /**
     * @ORM\Id
@@ -82,6 +85,11 @@ class User implements UserInterface, \Serializable
      */
     protected $role;
 
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $salt;
+
     public function getUsername() {
         return $this->username;
     }
@@ -91,7 +99,7 @@ class User implements UserInterface, \Serializable
     }
 
     public function getRoles() {
-        return aray('ROLE_USER');
+        return array('ROLE_USER');
     }
 
     public function eraseCredentials() {
@@ -99,7 +107,7 @@ class User implements UserInterface, \Serializable
     }
 
     public function getSalt() {
-        return null;
+        return $this->salt;
     }
 
     public function serialize() {
@@ -134,7 +142,8 @@ class User implements UserInterface, \Serializable
             $this->role,
             $this->sexe,
             $this->telephone,
-            $this->statut
+            $this->statut,
+            $this->salt
             ) = unserialize($serialized);
     }
 
