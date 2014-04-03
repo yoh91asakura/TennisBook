@@ -8,8 +8,9 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity
  * @ORM\Table(name="user")
+ * @ORM\Entity(repositoryClass="TennisBook\UserBundle\Entity\UserRepository")
  */
-class User implements UserInterface
+class User implements UserInterface, \Serializable
 {
 
 
@@ -22,12 +23,12 @@ class User implements UserInterface
     protected $id;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=100)
      */
     protected $nom;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=100)
      */
     protected $prenom;
 
@@ -67,12 +68,12 @@ class User implements UserInterface
     protected $sexe;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=25, unique=true)
      */
-    protected $Username;
+    protected $username;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=64)
      */
     protected $password;
 
@@ -82,15 +83,15 @@ class User implements UserInterface
     protected $role;
 
     public function getUsername() {
-
+        return $this->username;
     }
 
     public function getPassword() {
-
+        return $this->password;
     }
 
     public function getRoles() {
-
+        return aray('ROLE_USER');
     }
 
     public function eraseCredentials() {
@@ -98,7 +99,43 @@ class User implements UserInterface
     }
 
     public function getSalt() {
+        return null;
+    }
 
+    public function serialize() {
+        return serialize(array(
+            $this->id,
+            $this->username,
+            $this->password,
+            $this->email,
+            $this->nom,
+            $this->prenom,
+            $this->adresse,
+            $this->age,
+            $this->niveau,
+            $this->role,
+            $this->sexe,
+            $this->telephone,
+            $this->statut
+        ));
+    }
+
+    public function unserialize($serialized){
+        list(
+            $this->id,
+            $this->username,
+            $this->password,
+            $this->email,
+            $this->nom,
+            $this->prenom,
+            $this->adresse,
+            $this->age,
+            $this->niveau,
+            $this->role,
+            $this->sexe,
+            $this->telephone,
+            $this->statut
+            ) = unserialize($serialized);
     }
 
     /**
