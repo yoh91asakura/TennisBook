@@ -3,6 +3,7 @@
 namespace TennisBook\UserBundle\Entity;
 
 use Symfony\Component\Security\Core\User\UserInterface;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -16,6 +17,7 @@ class User implements UserInterface, \Serializable
     public function __construct()
     {
          $this->salt = md5(uniqid(null, true));
+         $this->annonces = new ArrayCollection();
     }
 
     /**
@@ -89,6 +91,11 @@ class User implements UserInterface, \Serializable
      * @ORM\Column(type="string")
      */
     protected $salt;
+
+    /**
+     * @ORM\OneToMany(targetEntity="TennisBook\CoreBundle\Entity\Annonce", mappedBy="TennisBook\UserBundle\Entity\User")
+     */
+    protected $annonces;
 
     public function getUsername() {
         return $this->username;
@@ -411,5 +418,51 @@ class User implements UserInterface, \Serializable
     public function getRole()
     {
         return $this->role;
+    }
+
+    /**
+     * Set salt
+     *
+     * @param string $salt
+     * @return User
+     */
+    public function setSalt($salt)
+    {
+        $this->salt = $salt;
+
+        return $this;
+    }
+
+    /**
+     * Add annonces
+     *
+     * @param \TennisBook\UserBundle\Entity\Annonce $annonces
+     * @return User
+     */
+    public function addAnnonce(\TennisBook\UserBundle\Entity\Annonce $annonces)
+    {
+        $this->annonces[] = $annonces;
+
+        return $this;
+    }
+
+    /**
+     * Remove annonces
+     *
+     * @param \TennisBook\UserBundle\Entity\Annonce $annonces
+     */
+    public function removeAnnonce(\TennisBook\UserBundle\Entity\Annonce $annonces)
+    {
+        $this->annonces->removeElement($annonces);
+    }
+
+    /**
+     * Get annonces
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getAnnonces()
+    {
+        return $this->annonces;
     }
 }

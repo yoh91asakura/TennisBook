@@ -38,6 +38,12 @@ class Annonce {
      */
     protected $date;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="TennisBook\UserBundle\Entity\User", inversedBy="TennisBook\CoreBundle\Entity\Annonce")
+     * @ORM\JoinColumn(name="annonce_id", referencedColumnName="id")
+     */
+    protected $user;
+
 
     /**
      * Get id
@@ -139,5 +145,28 @@ class Annonce {
     public function getDate()
     {
         return $this->date;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \TennisBook\CoreBundle\Entity\User $user
+     * @return Annonce
+     */
+    public function setUser(\TennisBook\CoreBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \TennisBook\CoreBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }
