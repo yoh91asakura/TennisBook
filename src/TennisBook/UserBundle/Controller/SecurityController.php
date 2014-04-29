@@ -4,8 +4,7 @@ namespace TennisBook\UserBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Security\Core\SecurityContext;
-use TennisBook\UserBundle\Form\UserType;
-use TennisBook\UserBundle\Entity\User;
+use Symfony\Component\HttpFoundation\Request;
 
 class SecurityController extends Controller
 {
@@ -28,12 +27,4 @@ class SecurityController extends Controller
         ));
     }
 
-    public function registerAction()
-    {
-        $user = new User();
-        $form = $this->createForm(new UserType(), $user);
-        return $this->render('TennisBookUserBundle:User:register.html.twig', array(
-           'form' => $form->createView(),
-        ));
-    }
 }

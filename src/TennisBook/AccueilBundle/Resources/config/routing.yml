@@ -9,3 +9,7 @@ tennis_book_accueilPro:
 tennis_book_accueilAmateur:
     pattern: /amateur
     defaults: { _controller: TennisBookAccueilBundle:Accueil:indexAmateur }
+
+tennis_book_accueilAmateur:
+    pattern: /new_annonce
+    defaults: { _controller: TennisBookAccueilBundle:Accueil:createAnnonce}
