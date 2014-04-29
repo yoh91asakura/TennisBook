@@ -1,42 +1,67 @@
 {% extends '::layout.html.twig' %}
 
 {% block body %}
-    <div class="row">
-        <div class="col-md-6 col-xs-6">
-            <div class="jumbotron">
-                <h1>Espace Amateur</h1>
-                <p>Trouve un partenaire de jeu idéal !</p>
-                <p><a class="btn btn-primary btn-lg" role="button" href=" {{ path('tennis_book_accueilAmateur') }}">Accèder</a></p>
-            </div>
-        </div>
-        <div class="col-md-6 col-xs-6">
-            <div class="jumbotron ">
-                <h1>Espace Pro</h1>
-                <p>Pour des rencontres d'exception</p>
-                <p><a class="btn btn-primary btn-lg" role="button" href=" {{ path('tennis_book_accueilPro') }}">Accèder</a></p>
-            </div>
-        </div>
-    </div>
+<!-- 
 
-    <div class="row">
-        <table class="table table-responsive table-striped table-hover">
-            <thead>
-            <th>id</th>
-            <th>nom</th>
-            <th>prenom</th>
-            </thead>
+index.html after connection
+pour avoir cette page l'utilisateur doit forcement se connecter
 
-            <tbody>
-            {% for i in (0..10) %}
-                <tr>
-                    <td>{{ i }}</td>
-                    <td>nom{{ i }}</td>
-                    <td>prenom{{ i }}</td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-    </div>
+Must Be Connected 
 
 
-{% endblock %}
+ -->
+
+
+
+<!-- the container of the page -->
+
+ <div class="container theme-showcase" style="margin-top: 80px;">
+
+<div class="jumbotron"><!-- container of the choice -->
+
+<p><h1><center>FAITES VOTRE CHOIX</center></h1></p>
+<p><center><a class="btn btn-primary btn-lg" role="button" href="{{ path('tennis_book_accueilAmateur') }}">AMATEUR</a>   <a class="btn btn-primary btn-lg" role="button" href="{{ path('tennis_book_accueilPro') }}">PROFESSIONNEL</a></center></p>
+
+</div>
+
+ </div>
+<!-- end choice container -->
+
+
+<div class="jumbotron"><!--tablau de joueur -->
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Liste Annonces</div>
+
+  <!-- Table -->
+  <table class="table table-hover">
+      <thead> 
+      <th>id</th>
+      <th>Nom</th>
+      <th>Age</th>
+      <th>Disponibilité</th>
+      <th>Ville</th>
+  </thead>
+  <tbody>
+{% for data in (0..10)  %}
+      <tr>
+          <td>id {{data}}</td>
+          <td><a href=""> nom {{data}} </a></td><!-- lien pour avoir les informations du joueur -->
+          <td>Age {{data}}</td>
+          <td>Disponibilite {{data}}</td>
+          <td>ville {{data}}</td>
+      </tr>
+{%endfor %}      
+  </tbody>
+  </table>
+</div>
+
+</div>
+
+
+
+
+
+
+{% endblock %}      
